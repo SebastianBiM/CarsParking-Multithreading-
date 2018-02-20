@@ -106,9 +106,5 @@ public class Main {
 		e.printStackTrace();
 	}
 	
-	System.out.println("It's done");
-
-
-	
 	}
 }

@@ -29,7 +29,7 @@ public class Parking {
 	
 	public void addCarToQue() throws InterruptedException{
 		while(addCarToQue){
-			Thread.sleep(3000);
+			Thread.sleep(1010);
 			
 			Car car = new Car(giveId());
 	
@@ -44,9 +44,9 @@ public class Parking {
 			Thread.sleep(100);
 			
 			do {
-				space = new Random().nextInt(40) + 1;
+				space = new Random().nextInt(30) + 1;
 				
-				if(map.size() <= 40 && !map.containsKey(space) ){
+				if(map.size() <= 30 && !map.containsKey(space) ){
 					if(!que.isEmpty()){
 						map.put(space, que.remove());
 					}
@@ -99,13 +99,11 @@ public class Parking {
 		while(showPar){
 			Thread.sleep(10000);
 			
-	//		if(!map.isEmpty()){
-				for(Map.Entry<Integer, Object> par : map.entrySet()) {
-				    System.out.println("Key (SPACE) : " + par.getKey() + "    "  + "CAR ID : " + par.getValue());
-				}
+			for(Map.Entry<Integer, Object> par : map.entrySet()) {
+					System.out.println("Key (SPACE) : " + par.getKey() + "    "  + "CAR ID : " + par.getValue());
+			}
 				
-				System.out.println("-------------------------------------------------------------------------");
-	//		}
+			System.out.println("-------------------------------------------------------------------------");
 		}
 	}
 	
@@ -124,13 +122,16 @@ public class Parking {
 		}
 	}
 	
-	public void killer(){
+	public void killer() throws InterruptedException{
+		
 		addCarToQue = false;
 		addCarToMap = false;
 		showPar = false;
 		showQue = false;
 		removeCar = false;
 		removeCoupleCar = false;
+		
+		System.out.println("Parking is closed");
 	}
 	
 	
